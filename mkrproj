@@ -1,5 +1,5 @@
 #!/bin/bash
-
+# https://gist.github.com/noamross/7a096fb5378974cfa8fe4fd7d5cc46d0
 # Usage: mkproj [projectname]
 # projectname defaults to name of current directory
 
