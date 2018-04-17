@@ -1,0 +1,7 @@
+#!/bin/bash
+# Clone git repo without the .git folder
+# https://stackoverflow.com/a/11498124/3362993
+# Args: https git address, local folder
+
+git clone --depth=1 --branch=master $1 $2
+rm -rf $2/.git
