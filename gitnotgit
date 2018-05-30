@@ -1,7 +1,24 @@
 #!/bin/bash
 # Clone git repo without the .git folder
 # https://stackoverflow.com/a/11498124/3362993
+#
 # Args: https git address, local folder, branch name
+# 
+# Details:
+# If folder exists clone to temp folder and 
+# move contents to existing folder.
 
-git clone --depth=1 --branch=$3 $1 $2
-rm -rf $2/.git
+temp_folder=`mktemp -d`
+
+# echo $(temp_folder)
+
+if [ -d "$2" ]; then
+	git clone --depth=1 --branch=$3 $1 "$temp_folder"
+	rm -rf "$temp_folder"/.git
+	cp -R "$temp_folder"/. $2/
+	rm -rf "$temp_folder"	
+else
+	git clone --depth=1 --branch=$3 $1 $2
+	rm -rf $2/.git
+fi
+
