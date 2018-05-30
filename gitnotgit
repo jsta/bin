@@ -10,8 +10,6 @@
 
 temp_folder=`mktemp -d`
 
-# echo $(temp_folder)
-
 if [ -d "$2" ]; then
 	git clone --depth=1 --branch=$3 $1 "$temp_folder"
 	rm -rf "$temp_folder"/.git
