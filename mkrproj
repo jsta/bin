@@ -51,4 +51,4 @@ fi
 
 
 # Open the newly created project in RStudio:
-rstudio "${projectname}.Rproj" & disown
+rstudio "${projectname}.Rproj" &> /dev/null & disown
