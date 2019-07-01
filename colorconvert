@@ -1,0 +1,9 @@
+#!/bin/bash
+# https://www.imagemagick.org/discourse-server/viewtopic.php?t=26692
+# Usage: colorconvert red in.png out.png
+
+tocolor=$1
+infile=$2
+outfile=$3
+
+convert ${infile} -fuzz XX% -fill ${tocolor} -opaque black ${outfile}
