@@ -2,7 +2,7 @@
 # https://www.imagemagick.org/discourse-server/viewtopic.php?t=34571
 
 find *.pdf -mtime -1 > list.txt || true
-xargs -I xxx -P 0 pdfcrop xxx xxx < list.txt || true
+# xargs -I xxx -P 0 pdfcrop xxx xxx < list.txt || true
 mogrify -density 300 -format png -resize 2500x2500\> @list.txt || true
 rm list.txt || true
 
