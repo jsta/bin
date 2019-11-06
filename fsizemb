@@ -1,0 +1,4 @@
+#!/bin/bash
+
+sizeb=`stat -c '%s' $1`
+echo "scale=3; ${sizeb}" / 1000000 | /usr/bin/bc
