@@ -1,0 +1,4 @@
+#!/bin/bash
+# Open a file with firefox without locking terminal
+
+firefox $1 &> /dev/null & disown
