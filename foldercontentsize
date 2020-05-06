@@ -1,0 +1,4 @@
+#!/bin/bash
+# https://askubuntu.com/a/1226/301014
+
+/usr/bin/du -h --max-depth=1 $1 | sort -h
