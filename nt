@@ -1,1 +1,4 @@
+#!/bin/bash
+# Open nautilus file navigation without locking terminal
+
 nautilus . &> /dev/null & disown
