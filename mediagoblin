@@ -1,0 +1,17 @@
+#!/bin/bash
+# Control mediagoblin from any folder location
+# 0 argument(s): start server and launch firefox interface
+# 1 argument(s): add file path to collection
+
+
+input_file=$(pwd)/$1
+echo "$input_file"
+
+ if [ "$#" -eq  "0" ]
+   then # start the mediagoblin server
+     cd $mediagoblin_path && ./lazyserver.sh & sleep 2 
+firefox 127.0.0.1:6543 & disown
+ else
+     cd $mediagoblin_path && ./bin/gmg addmedia cpmanat "$input_file"
+ fi
+
