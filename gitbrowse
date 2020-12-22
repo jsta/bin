@@ -1,4 +1,6 @@
 #!/bin/bash
 # Open a Github repo without locking terminal
 
-hub browse &> /dev/null & disown 
+# gh auth login --with-token < ~/.github_token
+gh repo view -w
+# yes | gh auth logout -h github.com
