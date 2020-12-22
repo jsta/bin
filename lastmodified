@@ -1,0 +1,8 @@
+#!/bin/bash
+# Return the last file modification data/time of one or more files
+# https://superuser.com/a/737248/741693
+
+for file in "$@"; do
+	stat -c '%y' "$file"
+done
+
