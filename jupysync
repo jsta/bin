@@ -1,17 +1,25 @@
 #!/bin/bash
-# Sync a paired jupyter notebook and standalone py file
+# Sync a paired jupyter notebook and standalone py file. Prior
+# to running, create a paired notebook and py file with:
+# jupytext --set-formats ipynb,py notebook.ipynb
+# 
 # Open an interactive session after syncing by:
 # passing the -o flag
 #
-# Create a paired notebook and py file with:
-# jupytext --set-formats ipynb,py notebook.ipynb
+# Execute all notebook cells and open an interactive session by:
+# passing the -e flag
 
-while getopts ":o" opt; do
+while getopts ":oe" opt; do
   case $opt in
     o)
       jupytext --sync $2
       jupyter notebook $2
       ;;
+    e)
+      jupytext --sync $2
+      papermill $2 $2 
+      jupyter notebook $2
+      ;;      
     \?)
       echo "Invalid option: -$OPTARG" >&2
       ;;
