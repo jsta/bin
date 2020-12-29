@@ -1,0 +1,24 @@
+#!/bin/bash
+# Sync a paired jupyter notebook and standalone py file
+# Open an interactive session after syncing by:
+# passing the -o flag
+#
+# Create a paired notebook and py file with:
+# jupytext --set-formats ipynb,py notebook.ipynb
+
+while getopts ":o" opt; do
+  case $opt in
+    o)
+      jupytext --sync $2
+      jupyter notebook $2
+      ;;
+    \?)
+      echo "Invalid option: -$OPTARG" >&2
+      ;;
+  esac
+done
+
+if [ $OPTIND -eq 1 ]; then 
+	jupytext --sync $1
+fi
+
