@@ -1,0 +1,11 @@
+#!/bin/bash
+# Create a new Jupyter notebook from the command line
+# 
+# Examples
+# jupyinit env_name py_file.py py_file.ipynb
+
+touch $2
+jupytext --set-kernel $1 $2
+jupytext --to notebook --execute $2
+jupytext --set-formats ipynb,py $3
+
