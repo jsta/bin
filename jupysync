@@ -13,12 +13,10 @@ while getopts ":oe" opt; do
   case $opt in
     o)
       jupytext --sync $2
-      jupyter notebook $2
       ;;
     e)
       jupytext --sync $2
       papermill $2 $2 
-      jupyter notebook $2
       ;;      
     \?)
       echo "Invalid option: -$OPTARG" >&2
