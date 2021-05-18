@@ -1,5 +1,6 @@
 #!/bin/bash
 # Preview the title page of a pdf paper with a torn edge using imagemagick 
+# https://stackoverflow.com/a/15978379/3362993
 
 convert -density 300 $1 -crop 100x20% -background white -alpha remove -strip -quality 70 test.png 
 	mv test-0.png test.png
