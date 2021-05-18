@@ -1,0 +1,10 @@
+#!/bin/bash
+# Preview the title page of a pdf paper with a torn edge using imagemagick 
+
+convert -density 300 $1 -crop 100x20% -background white -alpha remove -strip -quality 70 test.png 
+	mv test-0.png test.png
+	rm test-*.png
+	convert test.png -alpha set -background black -fill white \
+   \( +clone -colorize 100 -gravity south -chop 0x6 -splice 0x6 \
+   -spread 20 -paint 8 +transparent white -blur 0x0.8 \) \
+   -background none -compose dstin -composite torn.png
